@@ -1,3 +1,6 @@
+using GomlaMarket.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace GomlaMarket
 {
     public class Program
@@ -8,6 +11,12 @@ namespace GomlaMarket
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<AppDbContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+
 
             var app = builder.Build();
 

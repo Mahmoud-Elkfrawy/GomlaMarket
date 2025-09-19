@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GomlaMarket.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GomlaMarket.Data
 {
@@ -8,5 +9,8 @@ namespace GomlaMarket.Data
         {
             
         }
+
+        public DbSet<Category> Categories { get; set; }
+
     }
 }
