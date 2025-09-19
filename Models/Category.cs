@@ -8,6 +8,7 @@ namespace GomlaMarket.Models
         [Key]
         public int ID { get; set; }
         [Required]
+        [MaxLength(30)]
         public string Name { get; set; }
         [Required]
         public int DisplayOrder { get; set; }
