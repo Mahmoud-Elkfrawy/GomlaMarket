@@ -13,8 +13,16 @@ namespace GomlaMarket.Controllers
         }
         public IActionResult Index()
         {
+
             List<Category> objCategoryList = _dbContext.Categories.ToList();
             return View(objCategoryList);
         }
+        public IActionResult _CategoryPanalPartial(int id)
+        {
+            Category subCategory = (Category)_dbContext.Categories.Where(x => x.Id == id).ToList().FirstOrDefault();
+
+            return PartialView("_CategoryPanalPartial", subCategory);
+        }
+        
     }
 }

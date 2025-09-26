@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace GomlaMarket.Models
 {
@@ -12,5 +13,7 @@ namespace GomlaMarket.Models
         public string Name { get; set; }
         [Required]
         public int DisplayOrder { get; set; }
+
+        public String Image { get; set; } = "";
     }
 }
