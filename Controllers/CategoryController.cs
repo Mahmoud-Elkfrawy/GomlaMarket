@@ -28,6 +28,16 @@ namespace GomlaMarket.Controllers
 
             return PartialView("_CategoryPanalPartial", subCategory);
         }
+        public IActionResult Register()
+        {
+
+            if (ModelState.IsValid)
+            {
+                
+            }
+            return View();
+        }
+
 
     }
 }

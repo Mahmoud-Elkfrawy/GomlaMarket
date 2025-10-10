@@ -1,5 +1,6 @@
 ﻿using GomlaMarket.Models;
 using Microsoft.EntityFrameworkCore;
+using GomlaMarket.ViewModel;
 
 namespace GomlaMarket.Data
 {
@@ -17,6 +18,7 @@ namespace GomlaMarket.Data
         //}
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<GomlaMarket.ViewModel.UserRegisterViewModel> UserRegisterViewModel { get; set; } = default!;
         //override protected void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<Category>().HasData(
