@@ -20,7 +20,7 @@ namespace GomlaMarket.Repository
 
         public List<Category> Get()
         {
-            return appDbContext.Categories.AsNoTracking().ToList();
+            return appDbContext.Categories?.AsNoTracking().ToList();
         }
         public Category GetById(int id) 
         {

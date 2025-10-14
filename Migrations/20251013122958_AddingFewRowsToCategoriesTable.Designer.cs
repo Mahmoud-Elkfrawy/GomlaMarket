@@ -3,6 +3,7 @@ using GomlaMarket.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GomlaMarket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251013122958_AddingFewRowsToCategoriesTable")]
+    partial class AddingFewRowsToCategoriesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +35,10 @@ namespace GomlaMarket.Migrations
                     b.Property<int>("DisplayOrder")
                         .HasColumnType("int");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -46,26 +53,59 @@ namespace GomlaMarket.Migrations
                         {
                             Id = 1,
                             DisplayOrder = 1,
+                            Image = "",
                             Name = "Electronics"
                         },
                         new
                         {
                             Id = 2,
                             DisplayOrder = 2,
+                            Image = "",
                             Name = "Jewelery"
                         },
                         new
                         {
                             Id = 3,
                             DisplayOrder = 3,
+                            Image = "",
                             Name = "Men's Clothing"
                         },
                         new
                         {
                             Id = 4,
                             DisplayOrder = 4,
+                            Image = "",
                             Name = "Women's Clothing"
                         });
+                });
+
+            modelBuilder.Entity("GomlaMarket.ViewModel.UserRegisterViewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserRegisterViewModel");
                 });
 #pragma warning restore 612, 618
         }

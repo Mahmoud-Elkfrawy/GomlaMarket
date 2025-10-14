@@ -13,7 +13,5 @@ namespace GomlaMarket.Models
         public string Name { get; set; }
         [Required]
         public int DisplayOrder { get; set; }
-
-        public String Image { get; set; } = "";
     }
 }

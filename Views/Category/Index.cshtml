@@ -1,44 +1,54 @@
 ﻿@model List<Category>
 @{
-	<h1>Category List<button class="btn btn-outline-warning">Add New Category</button>  </h1>
-	<table class="table table-bordered table-striped table-hover">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>DisplayOrder</th>
-				<th>Operations</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var category in Model.OrderBy(o => o.DisplayOrder))
-			{
-				<tr>
-					<td>@category.Name</td>
-					<td>@category.DisplayOrder</td>
-					<td>
-						<button class="btn btn-outline-info">Update</button>
-						<button class="btn btn-outline-light" onclick="ShowPanel(@category.Id)">Show</button>
-						<button class="btn btn-outline-danger">Delete</button>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-	<div id="div"></div>
+    <div class="container">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2 class="text-dark">Category List</h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="" asp-action="" class="btn btn-outline-primary"><i class="bi bi-plus-square"></i> Add New Category</a>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DisplayOrder</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model.OrderBy(o => o.DisplayOrder))
+                {
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>@category.DisplayOrder</td>
+                        <td>
+                            <button class="btn btn-outline-info">Update</button>
+                            <button class="btn btn-outline-light" onclick="ShowPanel(@category.Id)">Show</button>
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div id="div"></div>
+    </div>
 }
 @section Scripts
 {
-	<script>
-		function ShowPanel(id)
-		{
-			event.preventDefault();
-					$.ajax({
-			url: "Category/_CategoryPanalPartial/" + id,
-			type: "get",
-			success: function (data) {
-				document.getElementById("div").innerHTML = data;
-			}
-				});
-		}
-	</script>
+    <script>
+        function ShowPanel(id)
+        {
+            event.preventDefault();
+                    $.ajax({
+            url: "Category/_CategoryPanalPartial/" + id,
+            type: "get",
+            success: function (data) {
+                document.getElementById("div").innerHTML = data;
+            }
+                });
+        }
+    </script>
 }
