@@ -25,7 +25,8 @@ namespace GomlaMarket.Data
                 new Category { Id = 1, Name = "Electronics", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "Jewelery", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "Men's Clothing", DisplayOrder = 3 },
-                new Category { Id = 4, Name = "Women's Clothing", DisplayOrder = 4 }
+                new Category { Id = 4, Name = "Women's Clothing", DisplayOrder = 4 },
+                new Category { Id = 6, Name = "dfsdfssd's Clothing", DisplayOrder = 4 }
                 );
         }
 
